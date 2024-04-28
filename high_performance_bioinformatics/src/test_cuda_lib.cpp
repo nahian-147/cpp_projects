@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "genome/parallel.cuh"
+#include "cuGENOME/parallel.cuh"
 #include "cuda_runtime.h"
 
 

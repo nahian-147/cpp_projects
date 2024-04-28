@@ -3,7 +3,7 @@
 #include <string>
 #include <cstring>
 #include <cctype>
-#include "genome/parallel.h"
+#include "cuGENOME/parallel.h"
 #include <cuda_runtime.h>
 
 
