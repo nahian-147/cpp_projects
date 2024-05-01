@@ -1,5 +1,6 @@
 sudo apt update
 sudo apt install -y libboost-all-dev
+sudo apt install -y zlib1g, zlib1g-dev, zlib1c, libbz2, libbz2-dev, libicu-dev, libexpat1, libexpat1-dev
 sudo apt install -y ocl-icd-opencl-dev
 sudo apt-get install -y cmake pkg-config
 sudo apt-get install -y mesa-utils libglu1-mesa-dev freeglut3-dev mesa-common-dev
