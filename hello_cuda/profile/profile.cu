@@ -27,8 +27,8 @@ int main( void ) {
         printf( "Texture Alignment:%ld\n", prop.textureAlignment );
 
         printf( "maxTexture1D:%d\n", prop.maxTexture1D );
-        printf( "maxTexture2D:%d\n", prop.maxTexture2D );
-        printf( "maxTexture3D:%d\n", prop.maxTexture3D );
+        printf( "maxTexture2D:<%d %d>\n", prop.maxTexture2D[0], prop.maxTexture2D[1] );
+        printf( "maxTexture3D:<%d %d %d>\n", prop.maxTexture3D[0], prop.maxTexture3D[1], prop.maxTexture3D[2] );
 
         if(prop.concurrentKernels){
             printf("Concurrent Kernel: Supported.\n");
