@@ -25,6 +25,22 @@ int main( void ) {
         printf( "Total constant Mem:%ld\n", prop.totalConstMem );
         printf( "Max mem pitch:%ld\n", prop.memPitch );
         printf( "Texture Alignment:%ld\n", prop.textureAlignment );
+
+        printf( "maxTexture1D:%ld\n", prop.maxTexture1D );
+        printf( "maxTexture2D:%ld\n", prop.maxTexture2D );
+        printf( "maxTexture3D:%ld\n", prop.maxTexture3D );
+
+        if(prop.concurrentKernels){
+            printf("Concurrent Kernel: Supported.\n");
+        }else
+            printf("Concurrent Kernel: Not Supported\n");
+
+        if (prop.canMapHostMemory){
+            printf("Can Map Host Memory.\n");
+        }else
+            printf("Can't Map Host Memory.\n");
+        
+
         printf( "--- MP Information for device %d ---\n", i );
         printf( "Multiprocessor count:%d\n",prop.multiProcessorCount );
         printf( "Shared mem per mp:%ld\n", prop.sharedMemPerBlock );
