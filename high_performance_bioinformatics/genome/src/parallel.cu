@@ -92,7 +92,7 @@ void parallel::translate(char *h_A, char *h_C, unsigned long long int numElement
 }
 
 
-void parallel::rand_str( char *ptr, unsigned long long int num_elements ){
+char* parallel::rand_str( char *ptr, unsigned long long int num_elements ){
     cudaError_t err = cudaSuccess;
 
     char *d_ptr = NULL;

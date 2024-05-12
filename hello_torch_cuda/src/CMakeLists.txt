@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(custom-dataset)
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_PREFIX_PATH "/home/nahian/libtorch/share/cmake/Torch")
+set(CMAKE_PREFIX_PATH "/home/nahian/libtorch_cuda/share/cmake/Torch")
 find_package(Torch REQUIRED)
 find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs)
 
