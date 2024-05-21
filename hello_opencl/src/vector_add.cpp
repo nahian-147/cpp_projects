@@ -39,6 +39,12 @@ int main(void) {
     cl_int ret = clGetPlatformIDs(1, &platform_id, &ret_num_platforms);
     ret = clGetDeviceIDs( platform_id, CL_DEVICE_TYPE_ALL, 1, 
             &device_id, &ret_num_devices);
+
+    cl_int err;
+    cl_uint numPlatforms;
+    cl_platform_id* platforms;
+
+  err = clGetPlatformIDs(0, NULL, &numPlatforms);
  
     // Create an OpenCL context
     cl_context context = clCreateContext( NULL, 1, &device_id, NULL, NULL, &ret);
@@ -92,6 +98,28 @@ int main(void) {
  
     printf("platform count %d\n",ret_num_platforms);
     printf("device count %d\n",ret_num_devices);
+    platforms= (cl_platform_id*) malloc(sizeof(cl_platform_id) * numPlatforms);
+  err = clGetPlatformIDs(numPlatforms, platforms, NULL);
+  if(err != CL_SUCCESS) {
+     printf("Couldn't get platforms");
+     return EXIT_FAILURE;
+  }
+
+  cl_platform_info Param_Name[5]={CL_PLATFORM_PROFILE, CL_PLATFORM_VERSION, CL_PLATFORM_NAME, CL_PLATFORM_VENDOR,CL_PLATFORM_EXTENSIONS};
+  cl_platform_info param_name;
+  size_t param_value_size;
+  for(int i=0;i<numPlatforms;i++){
+    for(int j=0;j<5;j++){
+      param_name=Param_Name[j];
+      err = clGetPlatformInfo( platforms[i], param_name, 0, NULL, &param_value_size);
+      char* param_value = (char*)malloc( sizeof(char) * param_value_size);
+      err = clGetPlatformInfo( platforms[i], param_name, param_value_size, param_value, NULL );
+      printf("%s\n", param_value);
+      free(param_value);
+    }
+  }
+
+  free(platforms);
     // Clean up
     ret = clFlush(command_queue);
     ret = clFinish(command_queue);
