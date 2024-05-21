@@ -10,10 +10,10 @@ install(TARGETS primes DESTINATION lib
         PUBLIC_HEADER DESTINATION include/primes
 )
 
-add_library(cu_primes SHARED parallel_primes.cu)
-set_target_properties(cu_primes PROPERTIES PUBLIC_HEADER parallel_primes.cuh)
-install(TARGETS cu_primes DESTINATION lib
-        PUBLIC_HEADER DESTINATION include/cu_primes
+add_library(cuprimes SHARED parallel_primes.cu)
+set_target_properties(cuprimes PROPERTIES PUBLIC_HEADER parallel_primes.cuh)
+install(TARGETS cuprimes DESTINATION lib
+        PUBLIC_HEADER DESTINATION include/cuprimes
 )
 
 # set_target_properties(genome PROPERTIES PUBLIC_HEADER seq_io.h)

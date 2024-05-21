@@ -9,7 +9,7 @@
 int main(void) {
     // Create the two input vectors
     int i;
-    const int LIST_SIZE = 10240000;
+    const int LIST_SIZE = 10240;
     int *A = (int*)malloc(sizeof(int)*LIST_SIZE);
     int *B = (int*)malloc(sizeof(int)*LIST_SIZE);
     for(i = 0; i < LIST_SIZE; i++) {
@@ -37,7 +37,7 @@ int main(void) {
     cl_uint ret_num_devices;
     cl_uint ret_num_platforms;
     cl_int ret = clGetPlatformIDs(1, &platform_id, &ret_num_platforms);
-    ret = clGetDeviceIDs( platform_id, CL_DEVICE_TYPE_DEFAULT, 1, 
+    ret = clGetDeviceIDs( platform_id, CL_DEVICE_TYPE_ALL, 1, 
             &device_id, &ret_num_devices);
  
     // Create an OpenCL context
@@ -90,6 +90,8 @@ int main(void) {
     for(i = 0; i < LIST_SIZE; i++)
         printf("%d + %d = %d\n", A[i], B[i], C[i]);
  
+    printf("platform count %d\n",ret_num_platforms);
+    printf("device count %d\n",ret_num_devices);
     // Clean up
     ret = clFlush(command_queue);
     ret = clFinish(command_queue);
